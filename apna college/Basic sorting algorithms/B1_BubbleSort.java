@@ -1,5 +1,14 @@
-public class solution{
+    // Time Complexity: O(N^2) Worst/Average, O(N) Best
+    // Space Complexity: O(1)
+
+public class B1_BubbleSort{
     public static void bubbleSort(int[] arr){
+
+        // Edge case: Return immediately if array is empty or has only 1 element
+        if (arr == null || arr.length <= 1) {
+            return;
+        }
+
         int n = arr.length;
         for(int i=0; i<n-1; i++){
             int swap = 0;
@@ -9,9 +18,11 @@ public class solution{
                 arr[j] = arr[j+1];
                 arr[j+1] = temp;
                 swap++;
-               }else if (swap == 0) {
-                break;
                }
+            }
+            // Optimization: If no swaps occurred, the array is already sorted
+            if (swap == 0) {
+                break;
             }
         }
     }
@@ -22,7 +33,7 @@ public class solution{
         
     }
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6};
+        int[] arr = {5, 4, 3, 2, 1, 0};
         bubbleSort(arr);  // Sorts the array in place
         printArray(arr);  // Prints the sorted array
     }
